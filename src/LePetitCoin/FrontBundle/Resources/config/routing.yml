@@ -1,0 +1,8 @@
+index:
+    path:     /
+    defaults: { _controller: LePetitCoinFrontBundle:Default:index }
+    
+publier:
+    path:     /publier
+    defaults: { _controller: LePetitCoinFrontBundle:Publier:publier }
+

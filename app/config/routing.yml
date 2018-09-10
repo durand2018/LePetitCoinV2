@@ -1,6 +1,6 @@
-front:
-    resource: "@FrontBundle/Resources/config/routing.yml"
-    prefix:   /
+le_petit_coin_front:
+    resource: "@LePetitCoinFrontBundle/Resources/config/routing.yml"
+    prefix:   /LePetitCoin
 
 app:
     resource: "@AppBundle/Controller/"

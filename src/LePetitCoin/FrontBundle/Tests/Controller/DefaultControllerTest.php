@@ -1,6 +1,6 @@
 <?php
 
-namespace FrontBundle\Tests\Controller;
+namespace LePetitCoin\FrontBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
