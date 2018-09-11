@@ -42,9 +42,12 @@ body {
 
 div.article{
     padding-top: 10px;
-    border-bottom: 5px #fff;
-    padding-left: 180px;
-    padding-right: 150px;
+    border: 5px #fff;
+    padding-left: 15px;
+    padding-right: 15px;
+   margin-left: 160px;
+    margin-right: 140px;
+    margin-bottom: 40px;
    background-color: #DDD;
 
     border: 10px;
@@ -59,6 +62,10 @@ div.article{
     
 }
 
+.liste10{
+    text-align: center;
+    color: gold;
+}
 
 h1,h2,h3,a,p,div{
     font-family: arial,sans-serif;
@@ -74,7 +81,7 @@ hr{
 }
 
 .buibou{
-    width:200px;
+    width:250px;
     height:70px;
     position: relative;
     display: inline-block;
