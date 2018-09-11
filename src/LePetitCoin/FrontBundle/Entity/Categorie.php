@@ -1,31 +1,34 @@
 <?php
 
 namespace LePetitCoin\FrontBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table()
+ */
 class Categorie {
-    
+
     /**
-    * @ORM\Id
-    * @ORM\Column(name="id",type="integer")
-    * @ORM\GeneratedValue(strategy="AUTO")
-    */
+     * @ORM\Id
+     * @ORM\Column(name="id",type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     private $id;
-    
-   /**
-   *@ORM\Column(name="libelle",type="string",length=50)
-   * 
-   */
+
+    /**
+     * @ORM\Column(name="libelle",type="string",length=50)
+     * 
+     */
     private $libelle;
 
     /**
-     *@ORM\Column(name="annonces",type="array")
-     *@ORM\OneToMany(targetEntity="Annonce",mappedBy="categorie",cascade={"persist"}) 
+     * @ORM\Column(name="annonces",type="array")
+     * @ORM\OneToMany(targetEntity="Annonce",mappedBy="categorie",cascade={"persist"}) 
      */
     private $annonces;
-    
-    
-    
+
     public function getId() {
         return $this->id;
     }
@@ -50,5 +53,4 @@ class Categorie {
         $this->annonces = $annonces;
     }
 
-
-    }
+}

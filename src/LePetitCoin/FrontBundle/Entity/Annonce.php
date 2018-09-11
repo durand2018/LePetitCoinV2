@@ -3,106 +3,110 @@
 namespace LePetitCoin\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 /*
- *@ORM\Entity(repositoryClass="LePetitCoin\FrontBundle\Entity\AnnonceRepository")
+ * @ORM\Entity(repositoryClass="LePetitCoin\FrontBundle\Entity\AnnonceRepository")
  * @ORM\Table()namespace LePetitCoin\FrontBundle\Entity;
  * @author G_Delvallée2018
  */
+
+/**
+ * @ORM\Entity
+ * @ORM\Table()
+ */
 class Annonce {
-    
+
     /**
      * @ORM\Id
      * @ORM\Column(name="id",type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    
+
     /**
-     *@ORM\Column(name="idsecu",type="string",length=16)
+     * @ORM\Column(name="idsecu",type="string",length=16)
      * 
      */
     private $idSecu;
-    
+
     /**
-     *@ORM\Column(name="titre",type="string",length=50)
+     * @ORM\Column(name="titre",type="string",length=50)
      * 
      */
     private $titre;
-   
+
     /**
-     *@ORM\Column(name="prix",type="float", scale=2)
+     * @ORM\Column(name="prix",type="float", scale=2)
      *
      */
     private $prix;
-    
+
     /**
-     *@ORM\Column(name="resume",type="text",length=255)
+     * @ORM\Column(name="resume",type="text",length=255)
      * 
      */
     private $resume;
-    
+
     /**
-     *@ORM\Column(name="description",type="text",length=800)
+     * @ORM\Column(name="description",type="text",length=800)
      *  
      */
     private $description;
-  
+
     /**
-     *@ORM\Column(name="type",type="string",length=3)
+     * @ORM\Column(name="type",type="string",length=3)
      *
      */
     private $type;
-    
+
     /**
-     *@ORM\Column(name="photo",type="blob")
+     * @ORM\Column(name="photo",type="blob")
      *  
      */
     private $photo;
-   
+
     /**
-     *@ORM\Column(name="marque",type="string",length=50)
+     * @ORM\Column(name="marque",type="string",length=50)
      * 
      */
     private $marque;
-    
+
     /**
-     *@ORM\Column(name="ville",type="string",length=50)
+     * @ORM\Column(name="ville",type="string",length=50)
      * 
      */
     private $ville;
-    
+
     /**
-     *@ORM\Column(name="email",type="string",length=100)
+     * @ORM\Column(name="email",type="string",length=100)
      *
      */
     private $email;
-    
+
     /**
-     *@ORM\Column(name="categorie",type="string",length=50)
-     *@ORM\ManyToOne(targetEntity="Categorie",inversedBy="annonces")
+     * @ORM\Column(name="categorie",type="string",length=50)
+     * @ORM\ManyToOne(targetEntity="Categorie",inversedBy="annonces")
      */
     private $categorie;
-    
+
     /**
-     *@ORM\Column(name="date_depot",type="datetime")
+     * @ORM\Column(name="date_depot",type="datetime")
      *
      */
     private $dateDepot;
-    
+
     /**
-     *@ORM\Column(name="archive",type="boolean")
+     * @ORM\Column(name="archive",type="boolean")
      *
      */
     private $archive;
-    
+
     /**
-     *@ORM\Column(name="reprise",type="boolean")
+     * @ORM\Column(name="reprise",type="boolean")
      *
      */
     private $reprise;
-   
-    
-    
+
     public function getId() {
         return $this->id;
     }
@@ -127,7 +131,7 @@ class Annonce {
         return $this->description;
     }
 
-    public function getType(): type {
+    public function getType(){
         return $this->type;
     }
 
@@ -223,15 +227,4 @@ class Annonce {
         $this->reprise = $reprise;
     }
 
-
-    
-     
-   
-    
-    
 }
-
-
-
-
-
