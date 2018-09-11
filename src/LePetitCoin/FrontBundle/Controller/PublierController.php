@@ -5,7 +5,10 @@ namespace LePetitCoin\FrontBundle\Controller;
 use LePetitCoin\FrontBundle\Entity\Annonce;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,14 +23,21 @@ class PublierController extends Controller {
         $annonce = new Annonce;
 
         $form = $this->createFormBuilder($annonce)
-                ->add('categorie', TextType::class)
-                ->add('type', TextType::class)
+                ->add('categorie', ChoiceType::class, array(
+                    'choices' => array(
+                        'perc'=>'perceuses',
+                        'tond'=>'tondeuses',)))
+                ->add('type', ChoiceType::class, array(
+                    'choices' => array(
+                        'loc'=>'location',
+                        'ven'=>'vente',
+                        'pre'=>'prêt')))
                 ->add('marque', TextType::class)
                 ->add('ville', TextType::class)
-                ->add('email', TextType::class)
+                ->add('email', EmailType::class)
                 ->add('titre', TextType::class)
                 ->add('resume', TextType::class)
-                ->add('description', TextType::class)
+                ->add('description', TextareaType::class)
                 ->add('valider',SubmitType::class)
                 ->getForm()
                 ;

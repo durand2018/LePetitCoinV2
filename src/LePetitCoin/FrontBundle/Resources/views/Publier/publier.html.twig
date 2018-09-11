@@ -4,6 +4,11 @@
 
 {% block contenu %}
     <h2>Formulaire de publication d'annonce</h2>
-    {{form(form)}}
+    {{form_start(form)}}
+        {{form_errors(form)}}
+        
+        {{form_widget(form)}}
+        
+    {{form_end(form)}}
 
 {% endblock %}
