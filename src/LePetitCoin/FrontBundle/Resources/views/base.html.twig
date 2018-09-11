@@ -3,36 +3,47 @@
 
 {%block title %} Le Petit Coin {% endblock %}
 {% block body %}
-    <header>
-        {% block header %}
+    <head class="headerr">
+        {% block head %}
 
             <p class="logo">
-                <img src="{{ asset('bundles/LePetitCoinfront/images/logoBrico.jpg') }}" alt="logoBrico" />
-            <h1><strong> Le Petit Coin </strong></h1>
-            <div class="clear"></div>
+           <img class="buibou" src="{{ asset('bundles/LePetitCoinfront/images/logoOutillage.png') }}"   alt="logoBrico" />
+            <h2 class="titreHead"  ><strong> WellCome ! Le Petit Coin </strong></h2>
+            <div id="searchbar">
+                
+                     
+                <form action="" class="formulaire">
+                    <label> recherche:</label>
+               <input class="champ" type="text" placeholder="veuillez valider en pressant le boutton entrée"/>
+                 
+                     
+                </form>
+                </div>
+            <div class="clear"></div></p>
+        <hr>
             <ul class="menu">   
-                <li> Accueil</li>
-                <li> Publier nouvelle annonce</li>
-                <li> Modifier annonce</li>
+                <li> <a href="offres.php"/> Offre</li>
+                <li> <a href="deposer annonce.php"/>Deposer une annonce</li>
+                <li> <a href="Echange.php"/>Echange</li>
+                <li> <a href="Demande.php">Demande<a/></li>
+                <li> <a href="Demande.php">Devenir Partenaire<a/></li>
+                <li> <a href="Demande.php">Connexion<a/></li>
             </ul>
             <div class="clear"></div>
-        </p>
-        <hr>
+      
+        
     {% endblock %}
-</header>
+</head>
+<main >
+      {% block contenu  %} {% endblock %}
+      </main>
 
-<main>
-    {% block contenu %}
-        <h2>Article1</h2><br>
-        <hr>
-        <h2>Article2</h2><br>
-        <hr>
-        <h2>Article3</h2><br>
-    {% endblock %}
-</main>
-
-<footer>
+<footer class="footer">
     {% block footer %}
+
+  <p>Posted by: Hege Refsnes</p>
+  <p>Contact information: <a href="mailto:someone@example.com">
+  someone@example.com</a>.</p>
 
     {% endblock %}  
 </footer>
