@@ -4,10 +4,10 @@ namespace LePetitCoin\FrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller {
+class AnnonceController extends Controller {
 
     public function indexAction() {
-        return $this->render('LePetitCoinFrontBundle:Default:index.html.twig');
+        return $this->render('LePetitCoinFrontBundle:Annonce:annonce.html.twig');
     }
 
 }
