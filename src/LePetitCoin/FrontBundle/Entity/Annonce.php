@@ -131,7 +131,7 @@ class Annonce {
         return $this->description;
     }
 
-    public function getType(): type {
+    public function getType(){
         return $this->type;
     }
 
