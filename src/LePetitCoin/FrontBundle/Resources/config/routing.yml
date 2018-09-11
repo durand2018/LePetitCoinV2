@@ -5,4 +5,8 @@ index:
 publier:
     path:     /publier
     defaults: { _controller: LePetitCoinFrontBundle:Publier:publier }
+    
+annonce:
+    path:     /annonce
+    defaults: { _controller: LePetitCoinFrontBundle:Annonce:annonce }
 
