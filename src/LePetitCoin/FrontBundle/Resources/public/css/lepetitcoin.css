@@ -1,14 +1,35 @@
 
 /*position des elements par rapport au body*/
 body {
-    background-color: appworkspace;
-    text-align: center;
+     
+       /*background-image: url("D:\wamp64\www\LePetitCoin\src\LePetitCoin\FrontBundle\Resources\public\images\fond.jpg") ;*/
+
+    background-color: #666666;
+     text-align : center;
      position: relative;
 }
 
 /*.headerr{
     position: relative;
 }*/
+ul.onglets li{
+    display: block; 
+
+    border: 2px solid #000000;
+    width: 120px;
+   height: 30px;
+/*    float:left;*/
+    margin-right: 0px;
+}
+
+.onglets{
+         padding-top: 100px;
+         /*margin-top: 100px;*/
+    position: absolute;
+        width: 800px;
+        height: 800px;
+        
+}
 
 
 /*position de la barre de recherche*/
@@ -30,7 +51,7 @@ body {
 }
 
 /*fome de la barre de recherche*/ 
-#searchbar{position:absolute; width:500px; height:600;}
+#searchbar{position:absolute; width:500px; height:600px;}
 .formulaire               {display:inline;}
 .formulaire .champ       {width:300px; height:20px;}
 .formulaire .bouton       { background-image: url(images/searchbar_button.png);
@@ -40,15 +61,18 @@ body {
 }   
 
 
-div.article{
-    padding-top: 10px;
-    border: 5px #fff;
+div.article{    
+    padding-top: 5px;
+    padding-bottom: 10px;
+    border: 10px #fff;
     padding-left: 15px;
-    padding-right: 15px;
-   margin-left: 160px;
-    margin-right: 140px;
-    margin-bottom: 40px;
-   background-color: #DDD;
+    padding-right: 0px;
+    margin-left: 200px;
+    margin-right: 40px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    
+    background-color: #DDD;
 
     border: 10px;
     border-color: cyan;
@@ -121,7 +145,7 @@ ul.menu li:hover{
 ul.menu li a,ul.menu li a:hover,ul.menu li a:active{
     text-align: center;
     display: inline;
-    color: #565656;
+    color: #fff;
     text-decoration: none;
     padding-top: 10px;
     font-weight: bold;

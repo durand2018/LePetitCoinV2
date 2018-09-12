@@ -3,23 +3,37 @@
 {%block title %} {{parent()}} - Accueil {% endblock %}
 {%block body %} {{parent()}}
 {% endblock %}
+
+
+
  {% block contenu %}
      
+        {% block onglets %}
+ <nav>
+  <ul class="onglets">
+    <li><a href="Accueil.html"> Accueil </a></li>
+    <li><a href="Forums.html"> Forums </a></li>
+    <li><a href="Livre_or.html"> Livre d'or </a></li>
+    <li><a href="Equipe.html"> L'équipe </a></li>
+    <li><a href="Inscription.html"> S'inscrire </a></li>
+    <li><a href="Connexion.html"> Se connecter </a></li>
+  </ul>
+</nav>
+
+  {% endblock %}
+    
      <p class="liste10"> Liste des 10 derniers articles ajoutés sur notre site. </p>
-     {% for i in 0..4 %}
+     {% for i in 0..5 %}
          <div class="article">
-<h3>Article  i</h3>
+          <h3>   <a href="FrontBundle:publier.html.twig"> Article   i</a> </h3>
          
         Oportunum est, ut arbitror, 
         explanare nunc causam, quae ad exitium praecipitem Aginatium inpulit iam inde a priscis 
-        maioribus nobilem,
-        ut locuta est pertinacior fama. nec enim super hoc ulla documentorum rata est fides. 
-        <hr>
+      </br>
+    
         </div>
       {% endfor %}
      
-    
-        
-        
-        
+ 
     {% endblock %}
+  
