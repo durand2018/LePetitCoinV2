@@ -6,49 +6,51 @@
     <head class="headerr">
         {% block head %}
 
-            <p class="logo">
-           <img class="buibou" src="{{ asset('bundles/LePetitCoinfront/images/logoOutillage.png') }}"   alt="logoBrico" />
-            <h2 class="titreHead"  ><strong> WellCome ! Le Petit Coin </strong></h2>
-            <div id="searchbar">
-                
-                     
-                <form action="" class="formulaire">
-                    <label> recherche:</label>
-               <input class="champ" type="text" placeholder="veuillez valider en pressant le boutton entrée"/>
-                 
-                     
-                </form>
-                </div>
-            <div class="clear"></div></p>
-        <hr>
-            <ul class="menu">   
-                <li> <a href="offres.php"/> Offre</li>
-                <li> <a href="deposer annonce.php"/>Deposer une annonce</li>
-                <li> <a href="Echange.php"/>Echange</li>
-                <li> <a href="Demande.php">Demande<a/></li>
-                <li> <a href="Demande.php">Devenir Partenaire<a/></li>
-                <li> <a href="Demande.php">Connexion<a/></li>
-            </ul>
-            <div class="clear"></div>
-      
-        
-    {% endblock %}
+        <p class="logo">
+            <img class="buibou" src="{{ asset('bundles/LePetitCoinfront/images/logoOutillage.png') }}"   alt="logoBrico" />
+        <h2 class="titreHead"  ><strong> WellCome ! Le Petit Coin </strong></h2>
+        <div id="searchbar">
+
+
+            <form action="" class="formulaire">
+                <label> recherche:</label>
+                <input class="champ" type="text" placeholder="veuillez valider en pressant le boutton entrée"/>
+
+
+            </form>
+        </div>
+        <div class="clear"></div></p>
+    <hr>
+    <ul class="menu">   
+        <li> <a href="offres.php"/> Offre</li>
+        <li> <a href="deposer annonce.php"/>Deposer une annonce</li>
+        <li> <a href="Echange.php"/>Echange</li>
+        <li> <a href="Demande.php">Demande<a/></li>
+        <li> <a href="Demande.php">Devenir Partenaire<a/></li>
+        <li> <a href="Demande.php">Connexion<a/></li>
+    </ul>
+    <div class="clear"></div>
+
+
+{% endblock %}
 </head>
 <main >
-      {% block contenu  %} {% endblock %}
-      </main>
+    {% block contenu  %} {% endblock %}
+</main>
 
 <footer class="footer">
     {% block footer %}
 
-  <p>Posted by: Hege Refsnes</p>
-  <p>Contact information: <a href="mailto:someone@example.com">
-  someone@example.com</a>.</p>
+        <p>Posted by: Hege Refsnes</p>
+        <p>Contact information: <a href="mailto:someone@example.com">
+                someone@example.com</a>.</p>
 
     {% endblock %}  
 </footer>
 
 {% endblock %}
+
+
 
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{asset('bundles/LePetitCoinfront/css/lepetitcoin.css')}}">
