@@ -191,7 +191,7 @@ class Annonce {
         $this->description = $description;
     }
 
-    public function setType(type $type) {
+    public function setType($type) {
         $this->type = $type;
     }
 

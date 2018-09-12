@@ -5,19 +5,7 @@
 
 {% block contenu %}
     <h2>Formulaire de publication d'annonce</h2>
-    {% form_theme form _self %}
-    {% block form_row %}
-        <div style="margin: 15px 0;">
-            <div style="float:left; width: 100px;">
-                {{ form_label(form) }}
-            </div>
-            <div>
-                {{ form_widget(form)}}
-            </div>
-            <div style="color: red;">
-                {{ form_errors(form)}}
-            </div>
-        </div>
-    {% endblock %}
-
+    {{message}}
+    {% form_theme formulaireAnnonce 'LePetitCoinFrontBundle:Default:form.html.twig' %}
+    {{form(formulaireAnnonce)}}
 {% endblock %}

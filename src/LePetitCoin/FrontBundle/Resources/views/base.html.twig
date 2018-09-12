@@ -3,32 +3,32 @@
 
 {%block title %} Le Petit Coin {% endblock %}
 {% block body %}
-    <head class="headerr">
+    <head class="head">
         {% block head %}
-
-            <p class="logo">
-           <img class="buibou" src="{{ asset('bundles/LePetitCoinfront/images/logoOutillage.png') }}"   alt="logoBrico" />
-            <h2 class="titreHead"  ><strong> WC ! Le Petit Coin </strong></h2>
-            
-
-                <form action="" class="formulaire"> 
+        <div class="logo">
+            <a href="{{path('index')}}">
+                <img class="logoOutil" src="{{ asset('bundles/LePetitCoinfront/images/logoOutillage.png') }}"   alt="logoBrico" />
+            </a>
+            <h2 class="titreHead"  ><strong> WelCome ! <br> Le Petit Coin </strong></h2>
+            <div id="searchbar">
+                <form action="" class="formulaire">
                     <label> recherche:</label>
-               <input class="champ" type="text" placeholder="veuillez valider en pressant le boutton entrée"/>
+                    <input class="champ" type="text" placeholder="veuillez valider en pressant le boutton entrée"/>
                 </form>
-      
-            <div class="clear"></div></p>
-        <hr>
-            <ul class="menu">   
-                <li> <a href="Demande.php">Offre</a></li>
-                <li> <a href="{{path('publier')}}">Deposer une annonce</a></li>
-                <li> <a href="Echange.php">Echange</a></li>
-                <li> <a href="Demande.php">Demande</a></li>
-                <li> <a href="Demande.php">Devenir Partenaire</a></li>
-                <li> <a href="Demande.php">Connexion</a></li>
-            </ul>
-            <div class="clear"></div>
-      
-        
+            </div>
+        </div>
+        {#<hr>#}
+        <ul class="menu">   
+            <li> <a href="Offres.php"/> Offre</li>
+            <li> <a href="publier"/>Deposer une annonce</li>
+            <li> <a href="Echange.php"/>Echange</li>
+            <li> <a href="Demande.php">Demande<a/></li>
+            <li> <a href="DevenirPartenaire.php">Devenir Partenaire<a/></li>
+            <li> <a href="Connexion.php">Connexion<a/></li>
+        </ul>
+        <div class="clear"></div>
+
+
     {% endblock %}
 </head>
 <main >
@@ -46,8 +46,6 @@
 </footer>
 
 {% endblock %}
-
-
 
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{asset('bundles/LePetitCoinfront/css/lepetitcoin.css')}}">
