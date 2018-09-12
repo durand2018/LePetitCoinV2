@@ -1,0 +1,16 @@
+{% extends 'LePetitCoinFrontBundle::base.html.twig' %}
+{% block title %} {{parent()}}Détail de l'annonce{%endblock%}
+{% block contenu %}
+    <h2>Annonces</h2>
+    <div class="annonce">
+        <p class="content">Annonces en ligne</p>
+{#        {{title}}#}
+        {#        {{tabAnnonce.description}}#}
+        <p class="details">
+            Le <span class="date">11/09/2018</span>
+            par <span class="author">{{'Johan DURAND'|title}}</span>
+        </p>
+    </div>
+    {#   {%for value in tabAnnonce%}
+       {%endfor%}#}
+{% endblock %}

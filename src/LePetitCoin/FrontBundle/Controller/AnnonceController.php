@@ -6,8 +6,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AnnonceController extends Controller {
 
-    public function indexAction() {
-        return $this->render('LePetitCoinFrontBundle:Annonce:annonce.html.twig');
+    public function indexAction($id) {
+        if (!(int) $id || $id < 0) {
+            throw $this->createNotFoundException('Aucune annonce trouvée');
+        }
+        $tabAnnonce = $this
+                ->getDoctrine()
+                ->getRepository('LePetitCoinFrontBundle:Annonce')
+                ->getSeePost($id)
+        ;
+        //return new Response('Affichage de l\'article n° '.$id);
+        return $this->render('LePetitCoinFrontBundle:Annonce:annonce.html.twig', array('tabAnnonce' => $tabAnnonce));
     }
 
 }
