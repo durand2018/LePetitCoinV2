@@ -1,8 +1,19 @@
 <?php
+namespace LePetitCoin\FrontBundle\Repository;
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+use Doctrine\ORM\EntityRepository;
+
+class AnnonceRepository extends EntityRepository {
+    
+    public function getLastPosts($nbAnnonces){
+        $em= $this->getEntityManager();
+        $dql='SELECT a FROM LePetitCoinFrontBundle:Annonce a';
+        $query=$em->createQuery($dql);
+        $query->setMaxResults($nbAnnonces);
+        return $query->getResult();
+    }
+    
+    
+}
+
 
