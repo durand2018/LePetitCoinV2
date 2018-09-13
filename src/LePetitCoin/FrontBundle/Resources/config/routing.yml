@@ -7,6 +7,6 @@ publier:
     defaults: { _controller: LePetitCoinFrontBundle:Publier:publier }
     
 annonce:
-    path:     /annonce
+    path:     /annonce/{id}
     defaults: { _controller: LePetitCoinFrontBundle:Annonce:annonce }
 

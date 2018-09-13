@@ -12,3 +12,4 @@
 /composer.phar
 /src/AppBundle/Controller/
 /src/AppBundle/Tests/Controller/DefaultControllerTest.php
+/nbproject/private/
