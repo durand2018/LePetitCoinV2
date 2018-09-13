@@ -12,9 +12,11 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Length;
 
 class PublierController extends Controller {
-    
+
     /**
      * 
      * @Template
@@ -22,31 +24,79 @@ class PublierController extends Controller {
     public function publierAction(Request $request) {
         $annonce = new Annonce;
 
-        $form = $this->createFormBuilder($annonce)
+        $titleOptions = array('label' => 'Titre*',
+            'constraints' => array(new NotBlank,
+                new Length(array('min' => 5, 'max' => 20))));
+
+        $formulaireAnnonce = $this->createFormBuilder($annonce)
                 ->add('categorie', ChoiceType::class, array(
                     'choices' => array(
-                        'perc'=>'perceuses',
-                        'tond'=>'tondeuses',)))
+                        '1' => 'Bricolage',
+                        '2' => 'Jardinage',
+                        '3' => 'Gros Œuvre',
+                        '4' => 'Décoration'),
+                    'constraints' => array(
+                        new NotBlank),
+                    'placeholder' => 'Choisir catégorie',
+                    'label' => 'Catégorie*'))
                 ->add('type', ChoiceType::class, array(
                     'choices' => array(
-                        'loc'=>'location',
-                        'ven'=>'vente',
-                        'pre'=>'prêt')))
-                ->add('marque', TextType::class)
-                ->add('ville', TextType::class)
-                ->add('email', EmailType::class)
-                ->add('titre', TextType::class)
-                ->add('resume', TextType::class)
-                ->add('description', TextareaType::class)
-                ->add('valider',SubmitType::class)
-                ->getForm()
-                ;
-        $form->handleRequest($request);
+                        'loc' => 'loc',
+                        'ven' => 'ven',
+                        'pre' => 'pre'),
+                    'constraints' => array(
+                        new NotBlank),
+                    'placeholder' => 'Choisir type',
+                    'label' => 'Type*'))
+                ->add('marque', TextType::class, array(
+                    'constraints' => array(
+                        new NotBlank),
+                    'label' => 'Marque*'
+                ))
+                ->add('ville', TextType::class, array(
+                    'constraints' => array(
+                        new NotBlank),
+                    'label' => 'Ville*'
+                ))
+                ->add('email', EmailType::class, array(
+                    'constraints' => array(
+                        new NotBlank),
+                    'label' => 'Email*'
+                ))
+                ->add('titre', TextType::class, $titleOptions)
+                ->add('resume', TextType::class, array(
+                    'constraints' => array(
+                        new NotBlank),
+                    'label' => 'Résumé*'
+                ))
+                ->add('description', TextareaType::class, ['attr' => ['style' => 'height:100px;'],
+                    'constraints' => array(
+                        new NotBlank),
+                    'label' => 'Description*'
+                        ]
+                )
+                ->add('valider', SubmitType::class)
+                ->getForm();
+        $formulaireAnnonce->handleRequest($request);
 
-        if ($form->isValid()) {
-            return new Response('Le formulaire est valide.');
+        if ($formulaireAnnonce->isValid()) {
+            $rep = $this-> ajoutAction($annonce);
+            //réaffichage de la page vierge
+            return $this->redirect($this->generateUrl('publier'))
+            /*array('message' => $rep,
+                'formulaireAnnonce' => $formulaireAnnonce->createView(),
+                )*/;
+            
         }
-        return array('form' => $form->createView());
+        return array('formulaireAnnonce'=>$formulaireAnnonce->createView(),
+            'message'=>'');
+    }
+    
+    public function ajoutAction(Annonce $annonce) {
+        $em = $this ->getDoctrine()->getManager();
+        $em->persist($annonce);
+        $em->flush();
+        return new Response('Insertion réussie !');
     }
 
 }
