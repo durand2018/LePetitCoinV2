@@ -1,7 +1,8 @@
 <?php
-
 namespace LePetitCoin\FrontBundle\Controller;
 
+use DateTime;
+use DateTimeZone;
 use LePetitCoin\FrontBundle\Entity\Annonce;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -12,8 +13,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class PublierController extends Controller {
 
@@ -80,20 +81,27 @@ class PublierController extends Controller {
         $formulaireAnnonce->handleRequest($request);
 
         if ($formulaireAnnonce->isValid()) {
-            $rep = $this-> ajoutAction($annonce);
+            $repoCat = $this->getDoctrine()->getRepository('LePetitCoinFrontBundle:Categorie');
+            $categorie = $repoCat->find($annonce->getCategorie());
+            $annonce->setCategorie($categorie);
+            $now = new DateTime(null, new DateTimeZone('Europe/Paris'));
+            $now->setTimestamp(time());            
+            $annonce->setDateDepot($now);
+
+
+            $rep = $this->ajoutAction($annonce);
             //réaffichage de la page vierge
             return $this->redirect($this->generateUrl('publier'))
-            /*array('message' => $rep,
-                'formulaireAnnonce' => $formulaireAnnonce->createView(),
-                )*/;
-            
+            /* array('message' => $rep,
+              'formulaireAnnonce' => $formulaireAnnonce->createView(),
+              ) */;
         }
-        return array('formulaireAnnonce'=>$formulaireAnnonce->createView(),
-            'message'=>'');
+        return array('formulaireAnnonce' => $formulaireAnnonce->createView(),
+            'message' => '');
     }
-    
+
     public function ajoutAction(Annonce $annonce) {
-        $em = $this ->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
         $em->persist($annonce);
         $em->flush();
         return new Response('Insertion réussie !');

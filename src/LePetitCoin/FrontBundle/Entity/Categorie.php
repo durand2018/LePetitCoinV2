@@ -1,11 +1,10 @@
 <?php
-
 namespace LePetitCoin\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="LePetitCoin\FrontBundle\Entity\CategorieRepository")
  * @ORM\Table()
  */
 class Categorie {
@@ -18,14 +17,15 @@ class Categorie {
     private $id;
 
     /**
+     * 
      * @ORM\Column(name="libelle",type="string",length=50)
      * 
      */
     private $libelle;
 
     /**
-     * @ORM\Column(name="annonces",type="array")
-     * @ORM\OneToMany(targetEntity="Annonce",mappedBy="categorie",cascade={"persist"}) 
+     * @ORM\OneToMany(targetEntity="LePetitCoin\FrontBundle\Entity\Annonce",mappedBy="categorie",cascade={"persist"}) 
+     * @var Annonce
      */
     private $annonces;
 

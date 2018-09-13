@@ -24,7 +24,7 @@ class Annonce {
     private $id;
 
     /**
-     * @ORM\Column(name="idsecu",type="string",length=16)
+     * @ORM\Column(name="idsecu",type="string",length=16, nullable=true)
      * 
      */
     private $idSecu;
@@ -36,7 +36,7 @@ class Annonce {
     private $titre;
 
     /**
-     * @ORM\Column(name="prix",type="float", scale=2)
+     * @ORM\Column(name="prix",type="float", scale=2, nullable=true)
      *
      */
     private $prix;
@@ -60,7 +60,7 @@ class Annonce {
     private $type;
 
     /**
-     * @ORM\Column(name="photo",type="blob")
+     * @ORM\Column(name="photo",type="blob", nullable=true)
      *  
      */
     private $photo;
@@ -84,28 +84,35 @@ class Annonce {
     private $email;
 
     /**
-     * @ORM\Column(name="categorie",type="string",length=50)
-     * @ORM\ManyToOne(targetEntity="Categorie",inversedBy="annonces")
+     * 
+     * @ORM\ManyToOne(targetEntity="LePetitCoin\FrontBundle\Entity\Categorie",inversedBy="annonces")
+     * @var Categorie
      */
     private $categorie;
 
     /**
-     * @ORM\Column(name="date_depot",type="datetime")
+     * @ORM\Column(name="date_depot",type="datetime", nullable=true)
      *
      */
     private $dateDepot;
 
     /**
-     * @ORM\Column(name="archive",type="boolean")
+     * @ORM\Column(name="archive",type="boolean", nullable=true)
      *
      */
     private $archive;
 
     /**
-     * @ORM\Column(name="reprise",type="boolean")
+     * 
+     * @ORM\Column(name="reprise",type="boolean", nullable=true)
      *
      */
     private $reprise;
+    
+    public function __construct()
+{
+    $this->date = new \DateTime('now');
+}
 
     public function getId() {
         return $this->id;

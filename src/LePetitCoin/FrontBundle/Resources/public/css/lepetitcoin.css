@@ -54,6 +54,8 @@ main .main-listArticles-wrapper {
 }
 main .main-listArticles-wrapper .article-content {
     padding: 15px;
+    /*background-color: #e8e8e8;*/
+    /*color:#FFF;*/
 }
 main .main-listArticles-wrapper a{
     display: block;
@@ -104,7 +106,7 @@ padding-top:35px;
     color: #002255;
 }
 .header-form-search {
-  margin: 38px 0;  
+    margin: 38px 0;  
 }
 /*fome de la barre de recherche*/ 
 /*top: 180px;*/
@@ -182,7 +184,7 @@ ul.menu{
 
 ul.menu li{
     /*tous les li qui sont dans un ul ayant la classe menu*/
-    
+
     display: inline-block;
     /*float:left;*/
     /*margin-right: 0px;*/
@@ -205,24 +207,10 @@ ul.menu li a{
 
 }
 ul.menu li a:hover{
-    /*background-color:#002255;*/
     color: #FFF;
     opacity: 0.8;
 
 }
-/*ul.menu li:hover{
-    background-color: graytext;
-}*/
-
-/*ul.menu li a,ul.menu li a:hover,ul.menu li a:active{
-    text-align: center;
-    display: inline;
-    color: #fff;
-    text-decoration: none;
-    padding-top: 10px;
-    font-weight: bold;
-}*/
-
 div.post{
     margin-top: 50px;
 }
@@ -267,7 +255,7 @@ footer{
 }
 #searchbar{
     /*position: absolute;*/
-   left: 38%;
-   top: 30px;
+    left: 38%;
+    top: 30px;
 }
 .formulaire               {display:inline;}
