@@ -13,7 +13,7 @@ class AnnonceController extends Controller {
         $tabAnnonce = $this
                 ->getDoctrine()
                 ->getRepository('LePetitCoinFrontBundle:Annonce')
-                ->getPost($id)
+                ->findOneById($id)
         ;
         //return new Response('Affichage de l\'article n° '.$id);
         return $this->render('LePetitCoinFrontBundle:Annonce:annonce.html.twig', array('tabAnnonce' => $tabAnnonce));

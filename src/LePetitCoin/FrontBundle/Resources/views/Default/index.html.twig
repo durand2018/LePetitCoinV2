@@ -12,11 +12,10 @@
         <div class="main-intro"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem purus, ultrices eget scelerisque eget, viverra id mi. Praesent mauris ipsum, tempus quis enim nec, aliquet molestie est.</div><s></s>
         <nav>
             <ul class="onglets">
-                <li><a href="Inscription.html"> Accueil </a></li>
-                <li><a href="Accueil.html"> Bricolage </a></li>
-                <li><a href="Forums.html"> Jardinage </a></li>
-                <li><a href="Livre_or.html"> Gros Œuvre </a></li>
-                <li><a href="Equipe.html"> Décoration </a></li>
+                <li><a> Bricolage </a></li>
+                <li><a> Jardinage </a></li>
+                <li><a> Gros Œuvre </a></li>
+                <li><a> Décoration </a></li>
             </ul>
         </nav>
 
@@ -27,7 +26,7 @@
         <div class="pure-g">
             {% for art in annonces %}
                 <div class="article pure-u-1 pure-u-md-1-2">
-                    <a href={{path('index',{'id':art.id})}}>
+                    <a href={{path('annonce',{'id':art.id})}}>
                         <div class="article-content">
                             <h3>   {{art.titre}} </h3>
                             <div class="pure-g">

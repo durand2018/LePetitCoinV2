@@ -23,6 +23,10 @@ a {
 }
 
 /* MENU CATEGORIE */
+nav{
+    text-align: center;
+}
+
 nav ul {
     text-align: center;
 }
@@ -74,10 +78,7 @@ main .main-listArticles-wrapper a:hover{
 }
 
 
-.onglets{
-    /*position: absolute;*/
 
-}
 
 
 /*position de la barre de recherche*/
@@ -119,6 +120,9 @@ padding-top:35px;
                             height: 35px;padding: 0; 
 }   
 
+.liste10{
+    padding-top: 25px;
+}
 
 div.article{   
     /*padding-top: 5px;
@@ -140,12 +144,7 @@ div.article{
     
     }
     
-    .liste10{
-        position: absolute;
-        top: 135px;
-        left: 45%;
-        color: gold;
-    }
+    
     
     h1,h2,h3,a,p,div{
         font-family: arial,sans-serif;

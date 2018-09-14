@@ -1,4 +1,5 @@
 <?php
+
 namespace LePetitCoin\FrontBundle\Controller;
 
 use DateTime;
@@ -19,7 +20,6 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 class PublierController extends Controller {
 
     /**
-     * 
      * @Template
      */
     public function publierAction(Request $request) {
@@ -85,13 +85,15 @@ class PublierController extends Controller {
             $categorie = $repoCat->find($annonce->getCategorie());
             $annonce->setCategorie($categorie);
             $now = new DateTime(null, new DateTimeZone('Europe/Paris'));
-            $now->setTimestamp(time());            
+            $now->setTimestamp(time());
             $annonce->setDateDepot($now);
 
 
             $rep = $this->ajoutAction($annonce);
             //réaffichage de la page vierge
             return $this->redirect($this->generateUrl('publier'))
+
+            //réaffiche formulaire rempli avec message reçu de la fonction ajoutAction
             /* array('message' => $rep,
               'formulaireAnnonce' => $formulaireAnnonce->createView(),
               ) */;

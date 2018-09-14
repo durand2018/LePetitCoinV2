@@ -3,16 +3,27 @@
 {% block title %} {{parent()}} - Annonce{%endblock%}
 
 {% block contenu %}
-    <h2>Annonces</h2>
-    <div class="annonce">
-        <p class="content">Annonces en ligne</p>
-        {#        {{title}}#}
-        {#        {{tabAnnonce.description}}#}
-        <p class="details">
-            Le <span class="datetime">11/09/2018</span>
-            par <span class="author">{{ |title}}</span>
-        </p>
+    <div class="article-content">
+        <div class="pure-g">
+            <div class="gaucheAnnonce pure-u-1 pure-u-md-1-2">
+                <p>{{tabAnnonce.dateDepot|date("d/m/Y")}}</p>
+                <p><img class="imageInsert" src="{{ asset('bundles/LePetitCoinfront/images/logoBrico.jpg') }}"   alt="logoBrico" /></p>
+                <p>{{tabAnnonce.categorie.libelle}}</p>
+                 <p>{{tabAnnonce.type}}</p>
+                 <p>{{tabAnnonce.ville}}</p>
+                <p>{{tabAnnonce.email}}</p>
+            </div>
+
+            <div class="contenuAnnonce pure-u-1 pure-u-md-1-2">
+                <h2>{{tabAnnonce.titre}}</h2>
+                <p>{{tabAnnonce.marque}}</p>
+                <p>{{tabAnnonce.resume}}</p>
+                <p>{{tabAnnonce.description}}</p>
+               
+                
+                
+            </div>
+        </div>
     </div>
-    {#   {%for value in tabAnnonce%}
-       {%endfor%}#}
+
 {% endblock %}
